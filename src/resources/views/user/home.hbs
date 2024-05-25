@@ -1,0 +1,310 @@
+<div class="App_withSidebarConten">
+    <section class="index-module_grid__1q71E index-module_fullWidth__3X-6x">
+        <div class="Home_slideshow__7qRda">
+            <div class="Slideshow_wrapper__tVCSx">
+                <div id="carouselExampleCaptions" class="carousel slide">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
+                            class="active carousel_btn" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                            aria-label="Slide 2" class="carousel_btn"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                            aria-label="Slide 3" class="carousel_btn"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active carousel_conten_1">
+                            <div class="row">
+                                <div class="col-lg-7">
+                                    <div class="carousel_conten">
+                                        <h1>Học ReactJS Miễn Phí !</h1>
+                                        <p>Khóa học ReactJS từ cơ bản tới nâng cao. Kết quả của khóa học này là bạn
+                                            có thể làm hầu hết các dự án thường gặp với ReactJS.</p>
+                                        <div>
+                                            <a rel="noreferrer noopener noreferrer" class="Slideshow_ctaBtn__xcyon"
+                                                target="_blank"
+                                                href="https://fullstack.edu.vn/courses/reactjs?ref=banner">ĐĂNG KÝ
+                                                NGAY</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5">
+                                    <div class="carousel_img">
+                                        <img src="img\Banner_01_2.png" class="d-block" alt="...">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item carousel_conten_2">
+                            <div class="row">
+                                <div class="col-lg-7">
+                                    <div class="carousel_conten">
+                                        <h1>Học ReactJS Miễn Phí !</h1>
+                                        <p>Khóa học ReactJS từ cơ bản tới nâng cao. Kết quả của khóa học này là bạn
+                                            có thể làm hầu hết các dự án thường gặp với ReactJS.</p>
+                                        <div>
+                                            <a rel="noreferrer noopener noreferrer" class="Slideshow_ctaBtn__xcyon"
+                                                target="_blank"
+                                                href="https://fullstack.edu.vn/courses/reactjs?ref=banner">ĐĂNG KÝ
+                                                NGAY</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5">
+                                    <div class="carousel_img">
+                                        <img src="img\Banner_01_2.png" class="d-block" alt="...">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item carousel_conten_3">
+                            <div class="row">
+                                <div class="col-lg-7">
+                                    <div class="carousel_conten">
+                                        <h1>Học ReactJS Miễn Phí !</h1>
+                                        <p>Khóa học ReactJS từ cơ bản tới nâng cao. Kết quả của khóa học này là bạn
+                                            có thể làm hầu hết các dự án thường gặp với ReactJS.</p>
+                                        <div>
+                                            <a rel="noreferrer noopener noreferrer" class="Slideshow_ctaBtn__xcyon"
+                                                target="_blank"
+                                                href="https://fullstack.edu.vn/courses/reactjs?ref=banner">ĐĂNG KÝ
+                                                NGAY</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5">
+                                    <div class="carousel_img">
+                                        <img src="img\Banner_01_2.png" class="d-block" alt="...">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev no-transform" type="button"
+                        data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                        <div class="control-prev" id="control-prev-left">
+                            <i class="fa-solid fa-chevron-left"></i>
+                            <span class="visually-hidden">Previous</span>
+                        </div>
+                    </button>
+                    <button class="carousel-control-next no-transform" type="button"
+                        data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                        <div class="control-prev" id="control-prev-right">
+                            <i class="fa-solid fa-chevron-right"></i>
+                            <span class="visually-hidden">Previous</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+        {{!-- end carousel --}}
+        {{!-- Courses --}}
+        <div class="Home_wrapper__53Los">
+            {{!-- item Courser Casch --}}
+            <div class="ScrollList_vertical__hG0sb">
+                <div class="">
+                    <div class="ScrollList_heading-wrap__58LQx">
+                        <h2 class="ScrollList_heading__BYEXH">
+                            <span>Khóa học Pro
+                                <sanp class="ScrollList_label__aulkb">
+                                    Mới
+                                </sanp>
+                            </span>
+                        </h2>
+                    </div>
+                </div>
+                <div class="row">
+                    {{#each courses}}
+                    <div class="col-lg-3">
+                        <div class="ScrollList_body__iMN">
+                            <section class="index-module_row__-AHgh">
+                                <section
+                                    class="index-module_col__2EQm9 index-module_c-12__u7UXF index-module_m-4__30Uoi index-module_l-3__MjWvb">
+                                    <div class="CommonItem_wrapper__1FbHi Home_courseItem__aIeZ4">
+                                        <a href="/courses/{{this.slug}}"
+                                            class="CommonItem_link__kUuJZ CommonItem_has-link__VLLrX">
+                                            <button class="Button_btn__RW1e2 CommonItem_cta-btn__OK+oX">Xem khóa
+                                                học</button>
+                                            <img class="CommonItem_thumb__ew8Jj" src="/img/{{this.image}}" alt="">
+                                        </a>
+
+                                        <h3 class="CommonItem_title__EpYrE">
+                                            <a href="/courses/{{slug}}">{{this.name}}</a>
+                                        </h3>
+                                        <div class="CourseItem_pro-icon__474i5">
+                                            <img src="img\crown_icon.3e4800f7485935ab6ea312a7080a85fe.svg" alt="">
+                                        </div>
+                                        <div class="price">
+                                            <span class="CourseItem_old-price__Y-b76">2.500.000</span>
+                                            <span class="CourseItem_main-price__6zPwS">1.229.000</span>
+                                        </div>
+
+                                    </div>
+                                </section>
+                            </section>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+            {{!-- Courses free --}}
+            <div class="ScrollList_vertical__hG0sb">
+                <div class="">
+                    <p class="ScrollList_sub-heading__4Ymiv"><strong>394.700+</strong> người khác đã học</p>
+                    <div class="ScrollList_heading-wrap__58LQx">
+                        <h2 class="ScrollList_heading__BYEXH">
+                            <span>Khóa học miễn phí
+                                {{!-- <sanp class="ScrollList_label__aulkb">
+                                    Mới
+                                </sanp> --}}
+                            </span>
+                        </h2>
+                        <a class="ScrollList_view-all__MTYc1" rel="noreferrer" target="_self" href="/learning-paths">Xem
+                            lộ trình
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="ScrollList_body__iMN">
+                            <section class="index-module_row__-AHgh">
+                                <section
+                                    class="index-module_col__2EQm9 index-module_c-12__u7UXF index-module_m-4__30Uoi index-module_l-3__MjWvb">
+                                    <div class="CommonItem_wrapper__1FbHi Home_courseItem__aIeZ4">
+                                        <a class="CommonItem_link__kUuJZ CommonItem_has-link__VLLrX">
+                                            <button class="Button_btn__RW1e2 CommonItem_cta-btn__OK+oX">Xem khóa
+                                                học</button>
+                                            <img class="CommonItem_thumb__ew8Jj"
+                                                src="https://files.fullstack.edu.vn/f8-prod/courses/15/62f13d2424a47.png"
+                                                alt="">
+                                        </a>
+                                        <h3 class="CommonItem_title__EpYrE">
+                                            <a href="">HTML,CSS Pro</a>
+                                        </h3>
+                                        <div class="CourseItem_pro-icon__474i5">
+                                            <img src="img\crown_icon.3e4800f7485935ab6ea312a7080a85fe.svg" alt="">
+                                        </div>
+                                        <div class="price">
+                                            <span class="CourseItem_old-price__Y-b76">2.500.000</span>
+                                            <span class="CourseItem_main-price__6zPwS">1.229.000</span>
+                                        </div>
+                                    </div>
+                                </section>
+                            </section>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="ScrollList_body__iMN">
+                            <section class="index-module_row__-AHgh">
+                                <section
+                                    class="index-module_col__2EQm9 index-module_c-12__u7UXF index-module_m-4__30Uoi index-module_l-3__MjWvb">
+                                    <div class="CommonItem_wrapper__1FbHi Home_courseItem__aIeZ4">
+                                        <a class="CommonItem_link__kUuJZ CommonItem_has-link__VLLrX">
+                                            <button class="Button_btn__RW1e2 CommonItem_cta-btn__OK+oX">Xem khóa
+                                                học</button>
+                                            <img class="CommonItem_thumb__ew8Jj"
+                                                src="https://files.fullstack.edu.vn/f8-prod/courses/15/62f13d2424a47.png"
+                                                alt="">
+                                        </a>
+                                        <h3 class="CommonItem_title__EpYrE">
+                                            <a href="">HTML,CSS Pro</a>
+                                        </h3>
+                                        <div class="CourseItem_pro-icon__474i5">
+                                            <img src="img\crown_icon.3e4800f7485935ab6ea312a7080a85fe.svg" alt="">
+                                        </div>
+                                        <div class="price">
+                                            <span class="CourseItem_old-price__Y-b76">2.500.000</span>
+                                            <span class="CourseItem_main-price__6zPwS">1.229.000</span>
+                                        </div>
+                                    </div>
+                                </section>
+
+                            </section>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="ScrollList_body__iMN">
+                            <section class="index-module_row__-AHgh">
+                                <section
+                                    class="index-module_col__2EQm9 index-module_c-12__u7UXF index-module_m-4__30Uoi index-module_l-3__MjWvb">
+                                    <div class="CommonItem_wrapper__1FbHi Home_courseItem__aIeZ4">
+                                        <a class="CommonItem_link__kUuJZ CommonItem_has-link__VLLrX">
+                                            <button class="Button_btn__RW1e2 CommonItem_cta-btn__OK+oX">Xem khóa
+                                                học</button>
+                                            <img class="CommonItem_thumb__ew8Jj"
+                                                src="https://files.fullstack.edu.vn/f8-prod/courses/15/62f13d2424a47.png"
+                                                alt="">
+                                        </a>
+                                        <h3 class="CommonItem_title__EpYrE">
+                                            <a href="">HTML,CSS Pro</a>
+                                        </h3>
+                                        <div class="CourseItem_pro-icon__474i5">
+                                            <img src="img\crown_icon.3e4800f7485935ab6ea312a7080a85fe.svg" alt="">
+                                        </div>
+                                        <div class="price">
+                                            <span class="CourseItem_old-price__Y-b76">2.500.000</span>
+                                            <span class="CourseItem_main-price__6zPwS">1.229.000</span>
+                                        </div>
+                                    </div>
+                                </section>
+
+                            </section>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="ScrollList_body__iMN">
+                            <section class="index-module_row__-AHgh">
+                                <section
+                                    class="index-module_col__2EQm9 index-module_c-12__u7UXF index-module_m-4__30Uoi index-module_l-3__MjWvb">
+                                    <div class="CommonItem_wrapper__1FbHi Home_courseItem__aIeZ4">
+                                        <a class="CommonItem_link__kUuJZ CommonItem_has-link__VLLrX">
+                                            <button class="Button_btn__RW1e2 CommonItem_cta-btn__OK+oX">Xem khóa
+                                                học</button>
+                                            <img class="CommonItem_thumb__ew8Jj"
+                                                src="https://files.fullstack.edu.vn/f8-prod/courses/15/62f13d2424a47.png"
+                                                alt="">
+                                        </a>
+                                        <h3 class="CommonItem_title__EpYrE">
+                                            <a href="">HTML,CSS Pro</a>
+                                        </h3>
+                                        <div class="CourseItem_pro-icon__474i5">
+                                            <img src="img\crown_icon.3e4800f7485935ab6ea312a7080a85fe.svg" alt="">
+                                        </div>
+                                        <div class="price">
+                                            <span class="CourseItem_old-price__Y-b76">2.500.000</span>
+                                            <span class="CourseItem_main-price__6zPwS">1.229.000</span>
+                                        </div>
+                                    </div>
+                                </section>
+
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+
+
+
+
+
+{{!-- <div class="mt-5">
+    <div class="row">
+        {{#each courses}}
+        <div class="col-sm-3 col-lg-4">
+            <div class="card" style="width: 18rem;">
+                <img src="/img/{{this.image}}" class="card-img-top" alt="{{this.name}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{this.name}}</h5>
+                    <p class="card-text">{{this.description}}</p>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div> --}}

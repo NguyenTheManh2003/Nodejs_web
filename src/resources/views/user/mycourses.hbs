@@ -1,0 +1,45 @@
+<div class="ScrollList_vertical__hG0sb m-5 w-100">
+    <div class="">
+        <div class="ScrollList_heading-wrap__58LQx">
+            <h2 class="ScrollList_heading__BYEXH">
+                <span>Khóa học của bạn
+                    <sanp class="ScrollList_label__aulkb">
+                        ALL
+                    </sanp>
+                </span>
+            </h2>
+        </div>
+    </div>
+    {{!-- --}}
+    <div class="row">
+        <table class="table fs-3 table-striped">
+            <thead>
+                <tr>
+                    <th class="col-1">#</th>
+                    <th class="col-4">Courses Name</th>
+                    <th class="col-2">Level</th>
+                    <th class="col-3">Date</th>
+                    <th class="col-2">Edit</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                {{#each mycourses}}
+                <tr>
+                    <td scope="row">{{@index}}</td>
+                    <td class="text-uppercase">
+                        <img width="50px" src="img/{{this.image}}" alt="">
+                        {{this.name}}
+                    </td>
+                    <td>{{this.level}}</td>
+                    <td>{{this.createdAt}}</td>
+                    <td class="">
+                        <a href="" class="btn btn-primary fs-4">hide</a>
+                        <a href="" class="btn btn-primary fs-4">delete</a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
