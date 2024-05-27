@@ -50,6 +50,21 @@ class adminController {
         res.status(400).json({ error: "ERROR!" });
       });
   }
+  // lisst courses delete
+  showscoursedelete(req, res, next) {
+    courses
+      .findDeleted({})
+      .then((courses) => {
+        res.render("admin/trash-courses", {
+          layout: "admin",
+          courses: mutipleMongooseToObject(courses),
+        });
+      })
+      .catch((err) => {
+        res.status(400).json({ error: "ERROR!" });
+      });
+  }
+
   // [get]/ Courses/edit_courses/:id
   edit_course(req, res, next) {
     courses
@@ -67,6 +82,22 @@ class adminController {
     courses
       .updateOne({ _id: req.params.id }, req.body)
       .then(() => res.redirect("/admin/list_courses"))
+      .catch(next);
+  }
+
+  //[delete]  courses/:id
+  destroy(req, res, next) {
+    courses
+      .delete({ _id: req.params.id })
+      .then(() => res.redirect("back"))
+      .catch(next);
+  }
+
+  // [patch] restore
+  restoreCourses(req, res, next) {
+    courses
+      .restore({ _id: req.params.id })
+      .then(() => res.redirect("back"))
       .catch(next);
   }
 }

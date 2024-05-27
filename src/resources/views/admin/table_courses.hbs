@@ -1,10 +1,18 @@
+<style>
+    #trash-admin:hover {
+        color: rgb(26, 5, 5) !important;
+    }
+</style>
 <div class="container-fluid py-4">
     <div class="row">
         <div class="col-12">
             <div class="card my-4">
                 <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                    <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                        <h6 class="text-white text-capitalize ps-3">Courses list</h6>
+                    <div
+                        class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3 d-flex justify-content-between">
+                        <h6 class="text-white text-capitalize ps-5 fs-3">Courses list</h6>
+                        <a id="trash-admin" class=" text-white text-capitalize pe-5  fs-3" href="/admin/trash">trash <i
+                                class="fa-solid fa-trash"></i></a>
                     </div>
                 </div>
                 <div class="card-body px-0 pb-2">
@@ -45,7 +53,8 @@
                                         <p class="text-xs font-weight-bold mb-0">{{this.level}}</p>
                                         <p class="text-xs text-secondary mb-0"></p>
                                     </td>
-                                    <td class="align-middle text-center text-sm">
+                                    <td class="align-middle text-center text-sm"
+                                        style="max-width: 200px; white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">
                                         {{this.description}}
                                     </td>
                                     <td class="align-middle text-center">
@@ -58,7 +67,20 @@
                                                 data-original-title="Edit user">
                                                 Edit
                                             </a></span>
+                                        <span class="badge badge-sm bg-gradient-danger" data-bs-toggle="modal"
+                                            data-bs-target="#delete_course" data-whatever="{{this._id}}">
+                                            <a class="text-back font-weight-bold text-xs" data-toggle="tooltip"
+                                                data-original-title="Edit user">
+                                                Delete
+                                            </a></span>
                                     </td>
+                                </tr>
+                                {{else}}
+                                <tr>
+                                    <th>
+                                        Bạn chưa đăng khóa học nào ------>
+                                        <a href="/admin/creater">Đăng khóa học here !</a>
+                                    </th>
                                 </tr>
                                 {{/each}}
                             </tbody>
@@ -106,3 +128,40 @@
         </div>
     </footer>
 </div>
+
+{{!-- form delete --}}
+<form method="POST" name="delete_form"></form>
+
+{{!-- modal delete Courses --}}
+<!-- Modal -->
+<div class="modal fade" id="delete_course" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Do you want to delete this course?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="btn-deletecode">Delete</button>
+                <button type="button" class="btn btn-info" data-bs-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var exampleModal = document.getElementById('delete_course')
+    var idcourses
+    var deleteCourse = document.getElementById("btn-deletecode")
+    var deleteForm = document.forms['delete_form']
+    exampleModal.addEventListener('show.bs.modal', function (event) {
+        // Button that triggered the modal
+        var button = event.relatedTarget
+        // Extract info from data-bs-* attributes
+        idcourses = button.getAttribute('data-whatever')
+    })
+
+    deleteCourse.onclick = function () {
+        deleteForm.action = '/admin/deletecourse/' + idcourses + '?_method=DELETE';
+        deleteForm.submit();
+    }  
+</script>
