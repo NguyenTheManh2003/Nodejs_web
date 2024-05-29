@@ -22,13 +22,10 @@ class adminController {
   }
   // lưu dữ liệu post khóa học
   store(req, res, next) {
-    const formData = req.body;
-    const course = new courses(formData);
+    const course = new courses(req.body);
     course
       .save()
-      .then((savedCourse) => {
-        res.status(201).json(savedCourse); // Gửi phản hồi JSON với bản ghi đã lưu
-      })
+      .then(() => res.redirect("/admin/list_courses"))
       .catch((err) => {
         console.error(err);
         res.status(500).json({ error: "Lỗi khi lưu khóa học" }); // Gửi phản hồi lỗi nếu có lỗi xảy ra
@@ -36,33 +33,51 @@ class adminController {
   }
   // quản lý khóa họcF
   list_course(req, res, next) {
-    courses
-      .find({})
-      .then((courses) => {
-        // chuyển đổi dữ liệu từ mongoose object sang plain object
-        // render view với dữ liệu và layout
+    Promise.all([courses.find({}), courses.countDocumentsDeleted()])
+      .then(([courses, deleteCount]) => {
         res.render("admin/table_courses", {
           layout: "admin",
+          deleteCount,
           courses: mutipleMongooseToObject(courses),
         });
       })
-      .catch((err) => {
-        res.status(400).json({ error: "ERROR!" });
-      });
+      .catch(next);
+
+    // // lấy count courses đã xóa
+    // courses.countDocumentsDeleted()
+    //   .then((deleteedCount) => {
+    //     console.log(deleteedCount)
+    //   })
+    //   .catch(()=> {})
+
+    // courses.find({})
+    //   .then((courses) => {
+    //     // chuyển đổi dữ liệu từ mongoose object sang plain object
+    //     // render view với dữ liệu và layout
+    //     res.render("admin/table_courses", {
+    //       layout: "admin",
+    //       courses: mutipleMongooseToObject(courses),
+    //     });
+    //   })
+    //   .catch((err) => {
+    //     res.status(400).json({ error: "ERROR!" });
+    //   });
   }
-  // lisst courses delete
   showscoursedelete(req, res, next) {
+    // Query to find courses where isDeleted is true
     courses
-      .findDeleted({})
-      .then((courses) => {
-        res.render("admin/trash-courses", {
-          layout: "admin",
-          courses: mutipleMongooseToObject(courses),
+      .findDeleted({}) // chỉ lấy các khóa học đã bị xóa
+        .then((courses) => {
+          // If successful, render the "admin/trash-courses" view
+          res.render("admin/trash-courses", {
+            layout: "admin",
+            courses: mutipleMongooseToObject(courses), // Convert courses to plain objects
+          });
+        })
+        .catch((err) => {
+          // If an error occurs, respond with a 400 status and error message
+          res.status(400).json({ error: "ERROR!" });
         });
-      })
-      .catch((err) => {
-        res.status(400).json({ error: "ERROR!" });
-      });
   }
 
   // [get]/ Courses/edit_courses/:id
@@ -92,13 +107,23 @@ class adminController {
       .then(() => res.redirect("back"))
       .catch(next);
   }
-
+  //
+  //[delete]  force/courses/:id
+  forceDestroy(req, res, next) {
+    courses
+      .deleteOne({ _id: req.params.id })
+      .then(() => res.redirect("back"))
+      .catch(next);
+  }
   // [patch] restore
   restoreCourses(req, res, next) {
     courses
       .restore({ _id: req.params.id })
       .then(() => res.redirect("back"))
-      .catch(next);
+      .catch((err) =>
+        res.status(500).json({ success: false, error: err.message })
+      );
   }
+
 }
 module.exports = new adminController();

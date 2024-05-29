@@ -15,6 +15,9 @@ route.get("/list_courses", admincontroller.list_course);
 route.put("/updatecourse/:id", admincontroller.update);
 // Xóa khóa học
 route.delete("/deletecourse/:id", admincontroller.destroy);
+// xóa vĩnh viễn
+route.delete("/force/deletecourse/:id", admincontroller.forceDestroy);
+
 // trash courses
 route.get("/trash", admincontroller.showscoursedelete);
 // restore
