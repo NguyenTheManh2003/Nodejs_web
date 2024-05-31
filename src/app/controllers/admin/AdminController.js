@@ -124,6 +124,20 @@ class adminController {
         res.status(500).json({ success: false, error: err.message })
       );
   }
+  // handleFormActions
 
+  handleFormActions (req, res, next) {
+    switch(req.body.action) {
+      case'restore':
+      // la mag nen cain them $in:
+        courses.restore({_id: {$in: req.body.coursesId}})
+          .then(() => res.redirect('back'))
+          .catch(next)
+        break;
+      default:
+        res.json({message:'action is invalid'})
+    }
+   
+  }
 }
 module.exports = new adminController();
