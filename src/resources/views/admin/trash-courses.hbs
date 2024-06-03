@@ -52,6 +52,7 @@
                                 </thead>
                                 <tbody>
                                     {{#each courses}}
+                                    {{#if deleted}}
                                     <tr>
                                         <td class="ps-4">
                                             <input class="me-2" name="coursesId[]" type="checkbox" value="{{this._id}}"
@@ -66,16 +67,14 @@
                                                 </div>
                                                 <div class="d-flex flex-column justify-content-center">
                                                     <h6 class="mb-0 text-sm">{{this.name}}</h6>
-                                                    <p class="text-xs text-secondary mb-0"></p>
                                                 </div>
                                             </div>
                                         </td>
                                         <td>
-                                            <p class="text-xs font-weight-bold mb-0">{{this.level}}{{this.deleted}}</p>
-                                            <p class="text-xs text-secondary mb-0"></p>
+                                            <p class="text-xs font-weight-bold mb-0">{{this.level}}</p>
                                         </td>
                                         <td class="align-middle text-center text-sm"
-                                            style="max-width: 200px; white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">
+                                            style="max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                                             {{this.description}}
                                         </td>
                                         <td class="align-middle text-center">
@@ -94,9 +93,11 @@
                                                 <a class="text-back font-weight-bold text-xs" data-toggle="tooltip"
                                                     data-original-title="Edit user">
                                                     Die
-                                                </a></span>
+                                                </a>
+                                            </span>
                                         </td>
                                     </tr>
+                                    {{/if}}
                                     {{else}}
                                     <tr>
                                         <th>
@@ -215,7 +216,7 @@
         // check sunmit disabal
 
 
-        console.log(containerForm)
+        {{!-- console.log(containerForm) --}}
         // bat event click all
         checkboxAll.change(function () {
             var isCheckedAll = $(this).prop('checked')
